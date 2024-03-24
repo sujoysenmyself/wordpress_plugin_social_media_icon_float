@@ -70,6 +70,19 @@ function floating_plugin_settings() {
     ));
 
 
+    register_setting('floating-plugin-settings-group', 'envelope_link');
+    register_setting('floating-plugin-settings-group', 'envelope_color', array(
+        'default' => '#3b5998',
+    ));
+    register_setting('floating-plugin-settings-group', 'envelope_icon_size', array(
+        'default' => '20',
+    ));
+    register_setting('floating-plugin-settings-group', 'envelope_icon_shape', array(
+        'default' => 'square',
+    ));
+    
+
+
     // test end
 
 
@@ -201,6 +214,25 @@ function floating_plugin_settings_page() {
                 </td>
             </tr>
 
+
+            <tr valign="top">
+                <th scope="row">Email ID</th>
+                <td><input type="text" name="envelope_link"
+                        value="<?php echo esc_attr(get_option('envelope_link')); ?>" /></td>
+                <td><input type="color" name="envelope_color"
+                        value="<?php echo esc_attr(get_option('envelope_color')); ?>" /></td>
+                <td><input type="number" name="envelope_icon_size"
+                        value="<?php echo esc_attr(get_option('envelope_icon_size', '20')); ?>" /></td>
+                <td>
+                    <select name="envelope_icon_shape">
+                        <option value="envelope_open" <?php selected(get_option('envelope_icon_shape'), 'square'); ?>>Envelope Open
+                        </option>
+                        <option value="envelope_closed" <?php selected(get_option('envelope_icon_shape'), 'normal'); ?>>Envelope Closed
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
             <!-- test end -->
 
 
@@ -274,17 +306,6 @@ function add_floating_element() {
     ?>
 }
 
-#floating-element .social-icons a i {
-    font-size: <?php echo esc_attr(get_option('facebook_icon_size', '20'));
-    ?>px;
-    <?php // Check if shape is set to normal, then apply border-radius
-
-    if (get_option('facebook_icon_shape')==='normal') {
-        echo 'border-radius: 50%;';
-    }
-
-    ?>
-}
 
 #floating-element .social-icons a i.fab.fa-facebook,
 #floating-element .social-icons a i.fab.fa-facebook-square {
@@ -317,6 +338,14 @@ function add_floating_element() {
 #floating-element .social-icons a i.fab.fa-whatsapp,
 #floating-element .social-icons a i.fab.fa-whatsapp-square {
     color: <?php echo esc_attr(get_option('whatsapp_color'));
+    ?>;
+}
+
+
+
+#floating-element .social-icons a i.fa-envelope,
+#floating-element .social-icons a i.fa-envelope-open {
+    color: <?php echo esc_attr(get_option('envelope_color'));
     ?>;
 }
 /* test end */
@@ -387,6 +416,19 @@ function add_floating_element() {
             ?>
             <i class="<?php echo esc_attr($whatsapp_icon_class); ?>"
                 style="font-size: <?php echo esc_attr(get_option('whatsapp_icon_size', '20')); ?>px;"></i>
+        </a>
+        <?php endif; ?>
+    </div>
+
+
+    <div class="social-icons" style="margin-bottom:5px;">
+        <?php if (get_option('envelope_link')) : ?>
+            <a href="mailto:<?php echo esc_attr(get_option('envelope_link')); ?>" target="_blank">
+            <?php
+            $envelope_icon_class = (get_option('envelope_icon_shape') === 'normal') ? 'fa-solid fa-envelope' : 'fa-solid fa-envelope-open';
+            ?>
+            <i class="<?php echo esc_attr($envelope_icon_class); ?>"
+                style="font-size: <?php echo esc_attr(get_option('envelope_icon_size', '20')); ?>px;"></i>
         </a>
         <?php endif; ?>
     </div>
