@@ -57,6 +57,19 @@ function floating_plugin_settings() {
         'default' => 'square',
     ));
 
+
+    register_setting('floating-plugin-settings-group', 'whatsapp_link');
+    register_setting('floating-plugin-settings-group', 'whatsapp_color', array(
+        'default' => '#3b5998',
+    ));
+    register_setting('floating-plugin-settings-group', 'whatsapp_icon_size', array(
+        'default' => '20',
+    ));
+    register_setting('floating-plugin-settings-group', 'whatsapp_icon_shape', array(
+        'default' => 'square',
+    ));
+
+
     // test end
 
 
@@ -163,6 +176,26 @@ function floating_plugin_settings_page() {
                         <option value="square" <?php selected(get_option('youtube_icon_shape'), 'square'); ?>>Square
                         </option>
                         <option value="normal" <?php selected(get_option('youtube_icon_shape'), 'normal'); ?>>Normal
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+
+
+            <tr valign="top">
+                <th scope="row">Whatsapp Number</th>
+                <td><input type="text" name="whatsapp_link"
+                        value="<?php echo esc_attr(get_option('whatsapp_link')); ?>" /></td>
+                <td><input type="color" name="whatsapp_color"
+                        value="<?php echo esc_attr(get_option('whatsapp_color')); ?>" /></td>
+                <td><input type="number" name="whatsapp_icon_size"
+                        value="<?php echo esc_attr(get_option('whatsapp_icon_size', '20')); ?>" /></td>
+                <td>
+                    <select name="whatsapp_icon_shape">
+                        <option value="square" <?php selected(get_option('whatsapp_icon_shape'), 'square'); ?>>Square
+                        </option>
+                        <option value="normal" <?php selected(get_option('whatsapp_icon_shape'), 'normal'); ?>>Normal
                         </option>
                     </select>
                 </td>
@@ -280,6 +313,12 @@ function add_floating_element() {
     ?>;
 }
 
+
+#floating-element .social-icons a i.fab.fa-whatsapp,
+#floating-element .social-icons a i.fab.fa-whatsapp-square {
+    color: <?php echo esc_attr(get_option('whatsapp_color'));
+    ?>;
+}
 /* test end */
 
 
@@ -334,6 +373,20 @@ function add_floating_element() {
             ?>
             <i class="<?php echo esc_attr($youtube_icon_class); ?>"
                 style="font-size: <?php echo esc_attr(get_option('youtube_icon_size', '20')); ?>px;"></i>
+        </a>
+        <?php endif; ?>
+    </div>
+
+
+
+    <div class="social-icons" style="margin-bottom:5px;">
+        <?php if (get_option('whatsapp_link')) : ?>
+            <a href="https://wa.me/<?php echo esc_attr(get_option('whatsapp_link')); ?>" target="_blank">
+            <?php
+            $whatsapp_icon_class = (get_option('whatsapp_icon_shape') === 'normal') ? 'fab fa-whatsapp' : 'fab fa-whatsapp-square';
+            ?>
+            <i class="<?php echo esc_attr($whatsapp_icon_class); ?>"
+                style="font-size: <?php echo esc_attr(get_option('whatsapp_icon_size', '20')); ?>px;"></i>
         </a>
         <?php endif; ?>
     </div>
