@@ -32,22 +32,6 @@ function floating_plugin_settings() {
         'default' => 'square',
     ));
 
-    // test start
-
-    register_setting('floating-plugin-settings-group', 'twitter_link');
-    register_setting('floating-plugin-settings-group', 'twitter_color', array(
-        'default' => '#3b5998',
-    ));
-    register_setting('floating-plugin-settings-group', 'twitter_icon_size', array(
-        'default' => '20',
-    ));
-    register_setting('floating-plugin-settings-group', 'twitter_icon_shape', array(
-        'default' => 'square',
-    ));
-
-    // test end
-
-
     // New settings for position
     register_setting('floating-plugin-settings-group', 'floating_vertical_position', array(
         'default' => 'bottom',
@@ -97,28 +81,6 @@ function floating_plugin_settings_page() {
                         </select>
                     </td>
                 </tr>
-
-
-<!-- test start -->
-
-<tr valign="top">
-                    <th scope="row">Twitter Link</th>
-                    <td><input type="text" name="twitter_link" value="<?php echo esc_attr(get_option('twitter_link')); ?>" /></td>
-                    <td><input type="color" name="twitter_color" value="<?php echo esc_attr(get_option('twitter_color')); ?>" /></td>
-                    <td><input type="number" name="twitter_icon_size" value="<?php echo esc_attr(get_option('twitter_icon_size', '20')); ?>" /></td>
-                    <td>
-                        <select name="twitter_icon_shape">
-                            <option value="square" <?php selected(get_option('instagram_icon_shape'), 'square'); ?>>Square</option>
-                            <option value="circle" <?php selected(get_option('instagram_icon_shape'), 'circle'); ?>>Circle</option>
-                        </select>
-                    </td>
-                </tr>
-
-<!-- test end -->
-
-
-
-
             </table>
 
             <hr />
@@ -195,18 +157,6 @@ function add_floating_element() {
 #floating-element .social-icons a i.fab.fa-instagram-square {
     color: <?php echo esc_attr(get_option('instagram_color')); ?>;
 }
-
-
-/* test start */
-#floating-element .social-icons a i.fab.fa-twitter,
-#floating-element .social-icons a i.fab.fa-twitter-square {
-    color: <?php echo esc_attr(get_option('twitter_color')); ?>;
-}
-/* test end */
-
-
-
-
         /* Add more styles for other social media icons */
 
     </style>
@@ -232,19 +182,6 @@ function add_floating_element() {
         </a>
     <?php endif; ?>
 </div>
-
-<!-- test start -->
-<div class="social-icons" style="margin-bottom:5px;">
-    <?php if (get_option('twitter_link')) : ?>
-        <a href="<?php echo esc_url(get_option('twitter_link')); ?>" target="_blank">
-            <?php
-            $twitter_icon_class = (get_option('twitter_icon_shape') === 'circle') ? 'fab fa-twitter' : 'fab fa-twitter-square';
-            ?>
-            <i class="<?php echo esc_attr($twitter_icon_class); ?>" style="font-size: <?php echo esc_attr(get_option('twitter_icon_size', '20')); ?>px;"></i>
-        </a>
-    <?php endif; ?>
-</div>
-<!-- test end -->
 
     </div>
     <?php
