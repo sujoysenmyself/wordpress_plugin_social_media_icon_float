@@ -157,7 +157,7 @@ function floating_plugin_settings_page() {
 
 function enqueue_floating_scripts() {
     // Enqueue Font Awesome CSS
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+    wp_enqueue_style('font-awesome', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css');
 }
 add_action('wp_enqueue_scripts', 'enqueue_floating_scripts');
 
@@ -198,8 +198,8 @@ function add_floating_element() {
 
 
 /* test start */
-#floating-element .social-icons a i.fab.fa-twitter,
-#floating-element .social-icons a i.fab.fa-twitter-square {
+#floating-element .social-icons a i.fab.fa-x-twitter,
+#floating-element .social-icons a i.fab.fa-square-x-twitter {
     color: <?php echo esc_attr(get_option('twitter_color')); ?>;
 }
 /* test end */
@@ -238,7 +238,7 @@ function add_floating_element() {
     <?php if (get_option('twitter_link')) : ?>
         <a href="<?php echo esc_url(get_option('twitter_link')); ?>" target="_blank">
             <?php
-            $twitter_icon_class = (get_option('twitter_icon_shape') === 'circle') ? 'fab fa-twitter' : 'fab fa-twitter-square';
+            $twitter_icon_class = (get_option('twitter_icon_shape') === 'circle') ? 'fab fa-brands fa-x-twitter' : 'fab fa-brands fa-square-x-twitter';
             ?>
             <i class="<?php echo esc_attr($twitter_icon_class); ?>" style="font-size: <?php echo esc_attr(get_option('twitter_icon_size', '20')); ?>px;"></i>
         </a>
