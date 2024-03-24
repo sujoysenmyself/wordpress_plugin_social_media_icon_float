@@ -72,7 +72,14 @@ function floating_plugin_settings_page() {
 
             <table class="form-table">
                 <!-- Existing settings -->
-                <h2>Social Media Links</h2>
+                <h2>Social Media List</h2>
+                <tr valign="top">
+    <th scope="row">Link</th>
+    <th scope="row"></th>
+    <th scope="row">Color</th>
+    <th scope="row">Size</th>
+    <th scope="row">Icon Shape</th>
+</tr>
                 <tr valign="top">
                     <th scope="row">Facebook Link</th>
                     <td><input type="text" name="facebook_link" value="<?php echo esc_attr(get_option('facebook_link')); ?>" /></td>
@@ -81,7 +88,7 @@ function floating_plugin_settings_page() {
                     <td>
                         <select name="facebook_icon_shape">
                             <option value="square" <?php selected(get_option('facebook_icon_shape'), 'square'); ?>>Square</option>
-                            <option value="circle" <?php selected(get_option('facebook_icon_shape'), 'circle'); ?>>Circle</option>
+                            <option value="normal" <?php selected(get_option('facebook_icon_shape'), 'normal'); ?>>Normal</option>
                         </select>
                     </td>
                 </tr>
@@ -93,7 +100,7 @@ function floating_plugin_settings_page() {
                     <td>
                         <select name="instagram_icon_shape">
                             <option value="square" <?php selected(get_option('instagram_icon_shape'), 'square'); ?>>Square</option>
-                            <option value="circle" <?php selected(get_option('instagram_icon_shape'), 'circle'); ?>>Circle</option>
+                            <option value="normal" <?php selected(get_option('instagram_icon_shape'), 'normal'); ?>>Normal</option>
                         </select>
                     </td>
                 </tr>
@@ -109,7 +116,7 @@ function floating_plugin_settings_page() {
                     <td>
                         <select name="twitter_icon_shape">
                             <option value="square" <?php selected(get_option('instagram_icon_shape'), 'square'); ?>>Square</option>
-                            <option value="circle" <?php selected(get_option('instagram_icon_shape'), 'circle'); ?>>Circle</option>
+                            <option value="normal" <?php selected(get_option('instagram_icon_shape'), 'normal'); ?>>Normal</option>
                         </select>
                     </td>
                 </tr>
@@ -181,8 +188,8 @@ function add_floating_element() {
         #floating-element .social-icons a i {
             font-size: <?php echo esc_attr(get_option('facebook_icon_size', '20')); ?>px;
             <?php
-            // Check if shape is set to circle, then apply border-radius
-            if (get_option('facebook_icon_shape') === 'circle') {
+            // Check if shape is set to normal, then apply border-radius
+            if (get_option('facebook_icon_shape') === 'normal') {
                 echo 'border-radius: 50%;';
             }
             ?>
@@ -216,7 +223,7 @@ function add_floating_element() {
     <?php if (get_option('facebook_link')) : ?>
         <a href="<?php echo esc_url(get_option('facebook_link')); ?>" target="_blank">
             <?php
-            $facebook_icon_class = (get_option('facebook_icon_shape') === 'circle') ? 'fab fa-facebook' : 'fab fa-facebook-square';
+            $facebook_icon_class = (get_option('facebook_icon_shape') === 'normal') ? 'fab fa-facebook' : 'fab fa-facebook-square';
             ?>
             <i class="<?php echo esc_attr($facebook_icon_class); ?>" style="font-size: <?php echo esc_attr(get_option('facebook_icon_size', '20')); ?>px;"></i>
         </a>
@@ -226,7 +233,7 @@ function add_floating_element() {
     <?php if (get_option('instagram_link')) : ?>
         <a href="<?php echo esc_url(get_option('instagram_link')); ?>" target="_blank">
             <?php
-            $instagram_icon_class = (get_option('instagram_icon_shape') === 'circle') ? 'fab fa-instagram' : 'fab fa-instagram-square';
+            $instagram_icon_class = (get_option('instagram_icon_shape') === 'normal') ? 'fab fa-instagram' : 'fab fa-instagram-square';
             ?>
             <i class="<?php echo esc_attr($instagram_icon_class); ?>" style="font-size: <?php echo esc_attr(get_option('instagram_icon_size', '20')); ?>px;"></i>
         </a>
@@ -238,7 +245,7 @@ function add_floating_element() {
     <?php if (get_option('twitter_link')) : ?>
         <a href="<?php echo esc_url(get_option('twitter_link')); ?>" target="_blank">
             <?php
-            $twitter_icon_class = (get_option('twitter_icon_shape') === 'circle') ? 'fab fa-brands fa-x-twitter' : 'fab fa-brands fa-square-x-twitter';
+            $twitter_icon_class = (get_option('twitter_icon_shape') === 'normal') ? 'fab fa-brands fa-x-twitter' : 'fab fa-brands fa-square-x-twitter';
             ?>
             <i class="<?php echo esc_attr($twitter_icon_class); ?>" style="font-size: <?php echo esc_attr(get_option('twitter_icon_size', '20')); ?>px;"></i>
         </a>
