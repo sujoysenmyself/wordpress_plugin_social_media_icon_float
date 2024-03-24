@@ -115,8 +115,8 @@ function floating_plugin_settings_page() {
                     <td><input type="number" name="twitter_icon_size" value="<?php echo esc_attr(get_option('twitter_icon_size', '20')); ?>" /></td>
                     <td>
                         <select name="twitter_icon_shape">
-                            <option value="square" <?php selected(get_option('instagram_icon_shape'), 'square'); ?>>Square</option>
-                            <option value="normal" <?php selected(get_option('instagram_icon_shape'), 'normal'); ?>>Normal</option>
+                            <option value="square" <?php selected(get_option('twitter_icon_shape'), 'square'); ?>>Square</option>
+                            <option value="normal" <?php selected(get_option('twitter_icon_shape'), 'normal'); ?>>Normal</option>
                         </select>
                     </td>
                 </tr>
