@@ -16,96 +16,96 @@ add_action('admin_menu', 'floating_plugin_menu');
 function floating_plugin_settings() {
     register_setting('floating-plugin-settings-group', 'facebook_link');
     register_setting('floating-plugin-settings-group', 'facebook_color', array(
-        'default' => '#3b5998',
+        'default' => '#3782d3',
     ));
     register_setting('floating-plugin-settings-group', 'facebook_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'facebook_icon_shape', array(
-        'default' => 'square',
+        'default' => 'circle',
     ));
     register_setting('floating-plugin-settings-group', 'instagram_link');
     register_setting('floating-plugin-settings-group', 'instagram_color', array(
-        'default' => '#c13584',
+        'default' => '#ff2600',
     ));
     register_setting('floating-plugin-settings-group', 'instagram_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'instagram_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
 
     // test start
 
     register_setting('floating-plugin-settings-group', 'twitter_link');
     register_setting('floating-plugin-settings-group', 'twitter_color', array(
-        'default' => '#3b5998',
+        'default' => '#101010',
     ));
     register_setting('floating-plugin-settings-group', 'twitter_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'twitter_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
 
 
     register_setting('floating-plugin-settings-group', 'youtube_link');
     register_setting('floating-plugin-settings-group', 'youtube_color', array(
-        'default' => '#3b5998',
+        'default' => '#f50000',
     ));
     register_setting('floating-plugin-settings-group', 'youtube_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'youtube_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
 
 
     register_setting('floating-plugin-settings-group', 'whatsapp_link');
     register_setting('floating-plugin-settings-group', 'whatsapp_color', array(
-        'default' => '#3b5998',
+        'default' => '#22970e',
     ));
     register_setting('floating-plugin-settings-group', 'whatsapp_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'whatsapp_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
 
 
     register_setting('floating-plugin-settings-group', 'envelope_link');
     register_setting('floating-plugin-settings-group', 'envelope_color', array(
-        'default' => '#3b5998',
+        'default' => '#0569c1',
     ));
     register_setting('floating-plugin-settings-group', 'envelope_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'envelope_icon_shape', array(
-        'default' => 'square',
+        'default' => 'envelope_closed',
     ));
 
 
     register_setting('floating-plugin-settings-group', 'linkedin_link');
     register_setting('floating-plugin-settings-group', 'linkedin_color', array(
-        'default' => '#3b5998',
+        'default' => '#065d91',
     ));
     register_setting('floating-plugin-settings-group', 'linkedin_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'linkedin_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
 
 
     register_setting('floating-plugin-settings-group', 'pinterest_link');
     register_setting('floating-plugin-settings-group', 'pinterest_color', array(
-        'default' => '#3b5998',
+        'default' => '#f50a0a',
     ));
     register_setting('floating-plugin-settings-group', 'pinterest_icon_size', array(
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'pinterest_icon_shape', array(
-        'default' => 'square',
+        'default' => 'normal',
     ));
     
 
