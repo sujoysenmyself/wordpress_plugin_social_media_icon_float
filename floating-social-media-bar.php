@@ -22,7 +22,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'facebook_icon_shape', array(
-        'default' => 'circle',
+        'default' => 'square',
     ));
     register_setting('floating-plugin-settings-group', 'instagram_link');
     register_setting('floating-plugin-settings-group', 'instagram_color', array(
@@ -32,7 +32,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'instagram_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'square',
     ));
 
 
@@ -44,7 +44,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'twitter_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'square',
     ));
 
 
@@ -56,7 +56,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'youtube_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'square',
     ));
 
 
@@ -68,7 +68,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'whatsapp_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'square',
     ));
 
 
@@ -92,7 +92,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'linkedin_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'square',
     ));
 
 
@@ -104,7 +104,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'pinterest_icon_shape', array(
-        'default' => 'circle',
+        'default' => 'square',
     ));
     
 
