@@ -1,6 +1,9 @@
 <?php
 /*
 Plugin Name: Social Media Floating Plugin
+Description: A simple floating social media icon (Facebook, Twitter, Instagram, YouTube, WhatsApp, Email, LinkedIn, Pinterest) on every page with customizable.
+Version: 1.0
+Author: Sujoy Sen
 */
 
 // Register settings page
