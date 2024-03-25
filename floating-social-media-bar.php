@@ -80,7 +80,7 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'envelope_icon_shape', array(
-        'default' => 'envelope_closed',
+        'default' => 'envelope_open',
     ));
 
 
