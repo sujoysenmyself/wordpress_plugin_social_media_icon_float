@@ -92,6 +92,18 @@ function floating_plugin_settings() {
     register_setting('floating-plugin-settings-group', 'linkedin_icon_shape', array(
         'default' => 'square',
     ));
+
+
+    register_setting('floating-plugin-settings-group', 'pinterest_link');
+    register_setting('floating-plugin-settings-group', 'pinterest_color', array(
+        'default' => '#3b5998',
+    ));
+    register_setting('floating-plugin-settings-group', 'pinterest_icon_size', array(
+        'default' => '20',
+    ));
+    register_setting('floating-plugin-settings-group', 'pinterest_icon_shape', array(
+        'default' => 'square',
+    ));
     
 
 
@@ -264,6 +276,26 @@ function floating_plugin_settings_page() {
                 </td>
             </tr>
 
+
+
+            <tr valign="top">
+                <th scope="row">Pinterest</th>
+                <td><input type="text" name="pinterest_link"
+                        value="<?php echo esc_attr(get_option('pinterest_link')); ?>" /></td>
+                <td><input type="color" name="pinterest_color"
+                        value="<?php echo esc_attr(get_option('pinterest_color')); ?>" /></td>
+                <td><input type="number" name="pinterest_icon_size"
+                        value="<?php echo esc_attr(get_option('pinterest_icon_size', '20')); ?>" /></td>
+                <td>
+                    <select name="pinterest_icon_shape">
+                        <option value="square" <?php selected(get_option('pinterest_icon_shape'), 'square'); ?>>Square
+                        </option>
+                        <option value="circle" <?php selected(get_option('pinterest_icon_shape'), 'circle'); ?>>Circle
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
             <!-- test end -->
 
 
@@ -386,6 +418,13 @@ function add_floating_element() {
     color: <?php echo esc_attr(get_option('linkedin_color'));
     ?>;
 }
+
+
+#floating-element .social-icons a i.fa-pinterest,
+#floating-element .social-icons a i.fa-square-pinterest {
+    color: <?php echo esc_attr(get_option('pinterest_color'));
+    ?>;
+}
 /* test end */
 
 
@@ -481,6 +520,20 @@ function add_floating_element() {
             ?>
             <i class="<?php echo esc_attr($linkedin_icon_class); ?>"
                 style="font-size: <?php echo esc_attr(get_option('linkedin_icon_size', '20')); ?>px;"></i>
+        </a>
+        <?php endif; ?>
+    </div>
+
+
+
+    <div class="social-icons" style="margin-bottom:5px;">
+        <?php if (get_option('pinterest_link')) : ?>
+            <a href="<?php echo esc_attr(get_option('pinterest_link')); ?>" target="_blank">
+            <?php
+            $pinterest_icon_class = (get_option('pinterest_icon_shape') === 'circle') ? 'fab fa-pinterest' : 'fab fa-square-pinterest';
+            ?>
+            <i class="<?php echo esc_attr($pinterest_icon_class); ?>"
+                style="font-size: <?php echo esc_attr(get_option('pinterest_icon_size', '20')); ?>px;"></i>
         </a>
         <?php endif; ?>
     </div>
