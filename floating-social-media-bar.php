@@ -35,7 +35,6 @@ function floating_plugin_settings() {
         'default' => 'normal',
     ));
 
-    // test start
 
     register_setting('floating-plugin-settings-group', 'twitter_link');
     register_setting('floating-plugin-settings-group', 'twitter_color', array(
@@ -105,12 +104,10 @@ function floating_plugin_settings() {
         'default' => '20',
     ));
     register_setting('floating-plugin-settings-group', 'pinterest_icon_shape', array(
-        'default' => 'normal',
+        'default' => 'circle',
     ));
     
 
-
-    // test end
 
 
     // New settings for position
@@ -180,8 +177,6 @@ function floating_plugin_settings_page() {
                 </td>
             </tr>
 
-
-            <!-- test start -->
 
             <tr valign="top">
                 <th scope="row">Twitter Link</th>
@@ -299,10 +294,6 @@ function floating_plugin_settings_page() {
                 </td>
             </tr>
 
-            <!-- test end -->
-
-
-
 
         </table>
 
@@ -386,7 +377,6 @@ function add_floating_element() {
 }
 
 
-/* test start */
 #floating-element .social-icons a i.fab.fa-x-twitter,
 #floating-element .social-icons a i.fab.fa-square-x-twitter {
     color: <?php echo esc_attr(get_option('twitter_color'));
@@ -428,8 +418,6 @@ function add_floating_element() {
     color: <?php echo esc_attr(get_option('pinterest_color'));
     ?>;
 }
-/* test end */
-
 
 
 
@@ -460,7 +448,6 @@ function add_floating_element() {
         <?php endif; ?>
     </div>
 
-    <!-- test start -->
     <div class="social-icons" style="margin-bottom:5px;">
         <?php if (get_option('twitter_link')) : ?>
         <a href="<?php echo esc_url(get_option('twitter_link')); ?>" target="_blank">
@@ -540,7 +527,6 @@ function add_floating_element() {
         </a>
         <?php endif; ?>
     </div>
-    <!-- test end -->
 
 </div>
 <?php
