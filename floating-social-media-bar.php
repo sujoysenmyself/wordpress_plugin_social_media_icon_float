@@ -80,6 +80,18 @@ function floating_plugin_settings() {
     register_setting('floating-plugin-settings-group', 'envelope_icon_shape', array(
         'default' => 'square',
     ));
+
+
+    register_setting('floating-plugin-settings-group', 'linkedin_link');
+    register_setting('floating-plugin-settings-group', 'linkedin_color', array(
+        'default' => '#3b5998',
+    ));
+    register_setting('floating-plugin-settings-group', 'linkedin_icon_size', array(
+        'default' => '20',
+    ));
+    register_setting('floating-plugin-settings-group', 'linkedin_icon_shape', array(
+        'default' => 'square',
+    ));
     
 
 
@@ -130,7 +142,7 @@ function floating_plugin_settings_page() {
                     <select name="facebook_icon_shape">
                         <option value="square" <?php selected(get_option('facebook_icon_shape'), 'square'); ?>>Square
                         </option>
-                        <option value="normal" <?php selected(get_option('facebook_icon_shape'), 'normal'); ?>>Normal
+                        <option value="circle" <?php selected(get_option('facebook_icon_shape'), 'circle'); ?>>Circle
                         </option>
                     </select>
                 </td>
@@ -225,9 +237,28 @@ function floating_plugin_settings_page() {
                         value="<?php echo esc_attr(get_option('envelope_icon_size', '20')); ?>" /></td>
                 <td>
                     <select name="envelope_icon_shape">
-                        <option value="envelope_open" <?php selected(get_option('envelope_icon_shape'), 'square'); ?>>Envelope Open
+                        <option value="envelope_open" <?php selected(get_option('envelope_icon_shape'), 'envelope_open'); ?>>Envelope Open
                         </option>
-                        <option value="envelope_closed" <?php selected(get_option('envelope_icon_shape'), 'normal'); ?>>Envelope Closed
+                        <option value="envelope_closed" <?php selected(get_option('envelope_icon_shape'), 'envelope_closed'); ?>>Envelope Closed
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr valign="top">
+                <th scope="row">LinkedIn</th>
+                <td><input type="text" name="linkedin_link"
+                        value="<?php echo esc_attr(get_option('linkedin_link')); ?>" /></td>
+                <td><input type="color" name="linkedin_color"
+                        value="<?php echo esc_attr(get_option('linkedin_color')); ?>" /></td>
+                <td><input type="number" name="linkedin_icon_size"
+                        value="<?php echo esc_attr(get_option('linkedin_icon_size', '20')); ?>" /></td>
+                <td>
+                    <select name="linkedin_icon_shape">
+                        <option value="square" <?php selected(get_option('linkedin_icon_shape'), 'square'); ?>>Square
+                        </option>
+                        <option value="normal" <?php selected(get_option('linkedin_icon_shape'), 'normal'); ?>>Normal
                         </option>
                     </select>
                 </td>
@@ -348,6 +379,13 @@ function add_floating_element() {
     color: <?php echo esc_attr(get_option('envelope_color'));
     ?>;
 }
+
+
+#floating-element .social-icons a i.fa-linkedin-in,
+#floating-element .social-icons a i.fa-linkedin {
+    color: <?php echo esc_attr(get_option('linkedin_color'));
+    ?>;
+}
 /* test end */
 
 
@@ -361,7 +399,7 @@ function add_floating_element() {
         <?php if (get_option('facebook_link')) : ?>
         <a href="<?php echo esc_url(get_option('facebook_link')); ?>" target="_blank">
             <?php
-            $facebook_icon_class = (get_option('facebook_icon_shape') === 'normal') ? 'fab fa-facebook' : 'fab fa-facebook-square';
+            $facebook_icon_class = (get_option('facebook_icon_shape') === 'circle') ? 'fab fa-facebook' : 'fab fa-facebook-square';
             ?>
             <i class="<?php echo esc_attr($facebook_icon_class); ?>"
                 style="font-size: <?php echo esc_attr(get_option('facebook_icon_size', '20')); ?>px;"></i>
@@ -425,10 +463,24 @@ function add_floating_element() {
         <?php if (get_option('envelope_link')) : ?>
             <a href="mailto:<?php echo esc_attr(get_option('envelope_link')); ?>" target="_blank">
             <?php
-            $envelope_icon_class = (get_option('envelope_icon_shape') === 'normal') ? 'fa-solid fa-envelope' : 'fa-solid fa-envelope-open';
+            $envelope_icon_class = (get_option('envelope_icon_shape') === 'envelope_closed') ? 'fa-solid fa-envelope' : 'fa-solid fa-envelope-open';
             ?>
             <i class="<?php echo esc_attr($envelope_icon_class); ?>"
                 style="font-size: <?php echo esc_attr(get_option('envelope_icon_size', '20')); ?>px;"></i>
+        </a>
+        <?php endif; ?>
+    </div>
+
+
+
+    <div class="social-icons" style="margin-bottom:5px;">
+        <?php if (get_option('linkedin_link')) : ?>
+            <a href="<?php echo esc_attr(get_option('linkedin_link')); ?>" target="_blank">
+            <?php
+            $linkedin_icon_class = (get_option('linkedin_icon_shape') === 'normal') ? 'fab fa-linkedin-in' : 'fab fa-linkedin';
+            ?>
+            <i class="<?php echo esc_attr($linkedin_icon_class); ?>"
+                style="font-size: <?php echo esc_attr(get_option('linkedin_icon_size', '20')); ?>px;"></i>
         </a>
         <?php endif; ?>
     </div>
