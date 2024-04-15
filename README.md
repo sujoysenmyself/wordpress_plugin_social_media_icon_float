@@ -8,6 +8,7 @@ The below screenshot is for plugin setting:
 
 ![3](https://github.com/sujoysenmyself/wordpress_plugin_social_media_icon_float/assets/26877224/75220419-63a3-4213-84c1-4ecbbfe348df)
 
+Below are the screenshot how this plugin will look likes. 
 
 ![1](https://github.com/sujoysenmyself/wordpress_plugin_social_media_icon_float/assets/26877224/d3531ca6-f72b-40af-8aa2-4fe3836156fe)
 
