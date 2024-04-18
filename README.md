@@ -2,7 +2,7 @@
 
 This is the wordpress custom plugin, where users can set the social media (icon link, icon colour, icon size and icon shape). After install and active this plugin, to visit the setting of this plugin you need to follow the following path. 
 
-The path is: Go tp Settings -> Click on Floating Plugin
+The path is: Go to Settings -> Click on Floating Plugin
 
 The below screenshot is for plugin setting:
 
